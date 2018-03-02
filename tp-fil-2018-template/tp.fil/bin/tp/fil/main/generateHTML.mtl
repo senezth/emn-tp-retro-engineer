@@ -5,8 +5,23 @@
 [template public generateHTML(model : Model)]
 [comment @main/]  
 [file ('PetStore_rendering.html', false, 'UTF-8')]
+
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>PetStore UML Model</title>
+	</head>
 	
-	[comment TO BE COMPLETED/]
+	<body>
+
+		
+
+	</body>
+	
+	</html>
+
+	
 
 [/file]
 [/template]

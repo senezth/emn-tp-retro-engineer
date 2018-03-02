@@ -9,8 +9,7 @@
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="generateHTML" visibility="Public" main="true">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#xA;"/>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&lt;!DOCTYPE html>&#xA;&#x9;&lt;html>&#xA;&#x9;&lt;head>&#xA;&#x9;&lt;meta charset=&quot;UTF-8&quot;>&#xA;&#x9;&lt;title>PetStore UML Model&lt;/title>&#xA;&#x9;&lt;/head>&#xA;&#x9;&#xA;&#x9;&lt;body>&#xA;&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;&lt;/body>&#xA;&#x9;&#xA;&#x9;&lt;/html>&#xA;&#xA;&#x9;&#xA;&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="PetStore_rendering.html">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </fileUrl>
@@ -109,35 +108,30 @@
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateHTML">
       <details key="start" value="142"/>
-      <details key="end" value="308"/>
+      <details key="end" value="418"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/generateHTML/%">
       <details key="start" value="207"/>
-      <details key="end" value="296"/>
+      <details key="end" value="406"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateHTML/%/%">
       <details key="start" value="258"/>
-      <details key="end" value="260"/>
+      <details key="end" value="399"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/generateHTML/%/%.1">
-      <details key="start" value="288"/>
-      <details key="end" value="289"/>
-      <details key="line" value="10"/>
-    </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/generateHTML/%/%.2">
       <details key="start" value="214"/>
       <details key="end" value="239"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/generateHTML/%/%.3">
+    <eAnnotations source="positions.5" references="/0/generateHTML/%/%.2">
       <details key="start" value="248"/>
       <details key="end" value="255"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/generateHTML/model">
+    <eAnnotations source="positions.6" references="/0/generateHTML/model">
       <details key="start" value="172"/>
       <details key="end" value="185"/>
       <details key="line" value="5"/>
