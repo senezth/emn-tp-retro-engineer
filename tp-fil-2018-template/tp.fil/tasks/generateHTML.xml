@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generateHTML" name="tp.fil">
-    <property name="ECLIPSE_HOME" value="../../../../../eclipse/modeling-oxygen/eclipse"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../.."/>
+    <property name="ECLIPSE_HOME" value="../../../../../../eclipse/modeling-oxygen/eclipse"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../.."/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="tp.fil.libraryclasspath">

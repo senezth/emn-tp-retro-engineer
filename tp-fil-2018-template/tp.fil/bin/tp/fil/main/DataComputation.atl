@@ -4,4 +4,50 @@
 module DataComputation;
 create OUT : Data from IN : Java;
 
--- TO BE COMPLETED
+rule ClassDeclaration2Class {
+	from
+		s : Java!ClassDeclaration(
+			if s.package.oclIsUndefined() then false else s.package.name = 'model'
+				and if s.package.package.oclIsUndefined() then false else s.package.package.name = 'petstore' endif endif)
+	to
+		t : Data!Class(
+			name <- s.name,
+			attributes <- s.bodyDeclarations->select(bd | bd.oclIsTypeOf(Java!FieldDeclaration))
+												->collect(fd | thisModule.FieldDeclaration2Attribute(fd)),
+			methods <- s.bodyDeclarations->select(cd | cd.oclIsTypeOf(Java!MethodDeclaration))
+											->collect(md | thisModule.MethodDeclaration2Method(md))
+		)
+}
+
+lazy rule FieldDeclaration2Attribute {
+	from
+		s : Java!FieldDeclaration
+	to
+		t : Data!Attribute(
+			name <- s.fragments.first().name,
+			type <- s.type.type.name,
+			encapsulation <- s.modifier.visibility.toString()
+		)
+}
+
+lazy rule MethodDeclaration2Method {
+	from 
+		s : Java!MethodDeclaration
+	to 
+		t : Data!Method(
+			name <- s.name,
+			return <- s.returnType.type.name,
+			Parameters <- s.parameters ->select(ed | ed.oclIsTypeOf(Java!SingleVariableDeclaration))
+											->collect(pd | thisModule.Parameter2Parameter(pd)),
+			encapsulation <- s.modifier.visibility.toString()
+		)
+}
+
+lazy rule Parameter2Parameter {
+	from 
+		s : Java!SingleVariableDeclaration
+	to 
+		t : Data!Parameter(
+			name <- s.name
+		)
+}
