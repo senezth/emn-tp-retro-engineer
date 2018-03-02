@@ -4,11 +4,19 @@
 module DataComputation;
 create OUT : Data from IN : Java;
 
-rule ClassDeclaration2Class {
+rule Model2Model {
+	from 
+		s : Java!Package(s.name = 'model' and not s.proxy)
+	to
+		t : Data!Model(
+			class <- s.ownedElements ->select (d | d.oclIsTypeOf(Java!ClassDeclaration))
+										-> collect(cd | thisModule.ClassDeclaration2Class(cd))
+		)
+}
+
+lazy rule ClassDeclaration2Class {
 	from
-		s : Java!ClassDeclaration(
-			if s.package.oclIsUndefined() then false else s.package.name = 'model'
-				and if s.package.package.oclIsUndefined() then false else s.package.package.name = 'petstore' endif endif)
+		s : Java!ClassDeclaration
 	to
 		t : Data!Class(
 			name <- s.name,
