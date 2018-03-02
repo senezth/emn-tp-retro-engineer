@@ -6,7 +6,15 @@
 [comment @main/] 
 [file ('PetStore_database.sql', false, 'UTF-8')]
 	
-	[comment TO BE COMPLETED/]
+	
+	[for (c : Class | model.class) separator('\n')]
+		CREATE TABLE [c.name/]
+		(
+		[for (a : Attribute | c.attributes) separator(',')]
+			[a.name + ' ' + a.type/]
+		[/for]
+		)
+	[/for]
 
 [/file]
 [/template]

@@ -9,7 +9,70 @@
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="generateSQL" visibility="Public" main="true">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#xA;&#x9;&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;CREATE TABLE "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="c" referredVariable="/0/generateSQL/%/%.1/c">
+              <eType xsi:type="ecore:EClass" href="http://data#//Class"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://data#//Class/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;(&#xA;"/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateSQL/%/%.1/%.3/a">
+                    <eType xsi:type="ecore:EClass" href="http://data#//Attribute"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://data#//Attribute/name"/>
+                </source>
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" ">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </argument>
+              </source>
+              <argument xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateSQL/%/%.1/%.3/a">
+                  <eType xsi:type="ecore:EClass" href="http://data#//Attribute"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://data#//Attribute/type"/>
+              </argument>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+            <loopVariable name="a">
+              <eType xsi:type="ecore:EClass" href="http://data#//Attribute"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Attribute)">
+              <source xsi:type="ocl.ecore:VariableExp" name="c" referredVariable="/0/generateSQL/%/%.1/c">
+                <eType xsi:type="ecore:EClass" href="http://data#//Class"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://data#//Class/attributes"/>
+            </iterSet>
+            <each xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=",">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </each>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;)&#xA;"/>
+          <loopVariable name="c">
+            <eType xsi:type="ecore:EClass" href="http://data#//Class"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Class)">
+            <source xsi:type="ocl.ecore:VariableExp" name="model" referredVariable="/0/generateSQL/model">
+              <eType xsi:type="ecore:EClass" href="http://data#//Model"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://data#//Model/class"/>
+          </iterSet>
+          <each xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </each>
+        </body>
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="PetStore_database.sql">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -28,6 +91,13 @@
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
         <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
       </eAnnotations>
+      <eOperations name="+">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="other">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
@@ -98,6 +168,50 @@
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://data#//Model"/>
   </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Class)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://data#//Class"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Attribute)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://data#//Attribute"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://data#//Model"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://data#//Model"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://data#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://data#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://data#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://data#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://data#//Attribute"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://data#//Attribute"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://data#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://data#//Model"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
@@ -109,35 +223,155 @@
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateSQL">
       <details key="start" value="138"/>
-      <details key="end" value="300"/>
+      <details key="end" value="455"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/generateSQL/%">
       <details key="start" value="201"/>
-      <details key="end" value="288"/>
+      <details key="end" value="443"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateSQL/%/%">
       <details key="start" value="250"/>
-      <details key="end" value="252"/>
+      <details key="end" value="254"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/generateSQL/%/%.1">
-      <details key="start" value="280"/>
-      <details key="end" value="281"/>
+      <details key="start" value="255"/>
+      <details key="end" value="434"/>
       <details key="line" value="10"/>
     </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/generateSQL/%/%.2">
+    <eAnnotations source="positions.5" references="/0/generateSQL/%/%.1/%">
+      <details key="start" value="303"/>
+      <details key="end" value="318"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateSQL/%/%.1/%.1">
+      <details key="start" value="319"/>
+      <details key="end" value="325"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateSQL/%/%.1/%.1/c">
+      <details key="start" value="319"/>
+      <details key="end" value="320"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateSQL/%/%.1/%.2">
+      <details key="start" value="327"/>
+      <details key="end" value="332"/>
+      <details key="line" value="12"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateSQL/%/%.1/%.3">
+      <details key="start" value="334"/>
+      <details key="end" value="422"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateSQL/%/%.1/%.3/%">
+      <details key="start" value="386"/>
+      <details key="end" value="389"/>
+      <details key="line" value="14"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/generateSQL/%/%.1/%.3/%.1">
+      <details key="start" value="390"/>
+      <details key="end" value="411"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/generateSQL/%/%.1/%.3/%.1/%">
+      <details key="start" value="390"/>
+      <details key="end" value="402"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/generateSQL/%/%.1/%.3/%.1/%/%">
+      <details key="start" value="390"/>
+      <details key="end" value="396"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/generateSQL/%/%.1/%.3/%.1/%/%/a">
+      <details key="start" value="390"/>
+      <details key="end" value="391"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/generateSQL/%/%.1/%.3/%.1/%/%.1">
+      <details key="start" value="399"/>
+      <details key="end" value="402"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/generateSQL/%/%.1/%.3/%.1/%.1">
+      <details key="start" value="405"/>
+      <details key="end" value="411"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/generateSQL/%/%.1/%.3/%.1/%.1/a">
+      <details key="start" value="405"/>
+      <details key="end" value="406"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/generateSQL/%/%.1/%.3/%.2">
+      <details key="start" value="413"/>
+      <details key="end" value="414"/>
+      <details key="line" value="15"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/generateSQL/%/%.1/%.3/a">
+      <details key="start" value="340"/>
+      <details key="end" value="353"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/generateSQL/%/%.1/%.3/%.3">
+      <details key="start" value="356"/>
+      <details key="end" value="368"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/generateSQL/%/%.1/%.3/%.3/c">
+      <details key="start" value="356"/>
+      <details key="end" value="357"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/generateSQL/%/%.1/%.3/%.4">
+      <details key="start" value="380"/>
+      <details key="end" value="383"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/generateSQL/%/%.1/%.4">
+      <details key="start" value="423"/>
+      <details key="end" value="427"/>
+      <details key="line" value="16"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/generateSQL/%/%.1/c">
+      <details key="start" value="261"/>
+      <details key="end" value="270"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/generateSQL/%/%.1/%.5">
+      <details key="start" value="273"/>
+      <details key="end" value="284"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/generateSQL/%/%.1/%.5/model">
+      <details key="start" value="273"/>
+      <details key="end" value="278"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/generateSQL/%/%.1/%.6">
+      <details key="start" value="296"/>
+      <details key="end" value="300"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/generateSQL/%/%.2">
+      <details key="start" value="435"/>
+      <details key="end" value="436"/>
+      <details key="line" value="18"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/generateSQL/%/%.3">
       <details key="start" value="208"/>
       <details key="end" value="231"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/generateSQL/%/%.3">
+    <eAnnotations source="positions.30" references="/0/generateSQL/%/%.4">
       <details key="start" value="240"/>
       <details key="end" value="247"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/generateSQL/model">
+    <eAnnotations source="positions.31" references="/0/generateSQL/model">
       <details key="start" value="167"/>
       <details key="end" value="180"/>
       <details key="line" value="5"/>

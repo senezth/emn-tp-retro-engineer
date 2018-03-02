@@ -15,7 +15,13 @@
 	
 	<body>
 
-		
+	[for (c : Class | model.class) separator('\n')]
+		<img src="http://yuml.me/diagram/scruffy/class/['[' + c.name + '|'/]
+		[for (a : Attribute | c.attributes)]
+			[a.name + ' : ' + a.type + ';'/]
+		[/for]
+		[']'/]" >
+	[/for]
 
 	</body>
 	
